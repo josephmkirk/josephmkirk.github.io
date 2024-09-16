@@ -130,6 +130,17 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Drop shadow */
 }
 
+.centered-portfolio-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
 #header {
 	/* height: 98px; */
 }
@@ -605,7 +616,7 @@ a.rotate-box-1:hover, a.rotate-box-2:hover {
 	transform:scale(1);
 	opacity:1;
 }
-.portfolio_single_content div a{
+.portfolio_single_content div p{
 	color: #FFFFFF;
 	display: block;
 	font-size: 18px;
