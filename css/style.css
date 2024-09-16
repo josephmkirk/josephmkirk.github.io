@@ -849,29 +849,9 @@ ul.social-list li a i {
 #contact-section .cover {
 	background-color: rgba(5, 8, 11, 0.93);
 }
-#contact-section .contact .contact-form {
+#contact-section .contact .contacts {
 	margin-bottom: 40px;
-}
-#contact-section .contact .contact-form h4 {
-	margin-bottom: 25px;
-}
-#contact-section .contact .contact-form .input-lg {
-	font-size: 14px;
-}
-#contact-section .contact .contact-form button {
-	width: 100%;
-	height: 40px;
-}
-#contact-section .contact .contact-form button:hover {
-	color: #fff;
-}
-#contact-section .contact .form-control {
-	background-color: rgba(255, 255, 255, 0.06);
-	border-color: #2A2A2A;
-}
-#contact-section .contact .form-control:focus {
-	background-color: #171717;
-	box-shadow: none;
+	text-align: center;
 }
 
 ul.contact-address {
