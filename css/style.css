@@ -137,7 +137,7 @@ section {
     border-radius: 50% !important; /* Makes the image circular */
 	object-fit: cover;
 	vertical-align: middle;
-    margin-right: 50px; /* Adds space between the image and text */
+	margin: 50px;
 }
 
 .title-container {

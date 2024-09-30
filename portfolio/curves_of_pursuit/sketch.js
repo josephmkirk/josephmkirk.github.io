@@ -120,7 +120,7 @@ function draw() {
     }
     if (counter == shape_freq) {
         counter = 0;
-    } else {
+    } else if (allow_spin){
         counter++;
     }
 
