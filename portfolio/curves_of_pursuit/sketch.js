@@ -1,5 +1,5 @@
-let width = screen.width;
-let height = screen.height- 200;
+let width;
+let height;
 
 let step_size = 0.8;
 let shape_freq = 8;
@@ -22,9 +22,23 @@ let click1_cycles;
 let RT_closest_point;
 let RT_closest_point_edge_ID;
 
+let lightMode = true; 
+let strokeColour;
+let fillColour;
+
 function setup() {
-    // createCanvas(screen.width, screen.height);
-    createCanvas(width,height);
+    
+    let navbarHeight = document.getElementById('main-navbar').offsetHeight;
+    width = document.getElementById('canvas-container').clientWidth;
+    height = windowHeight - navbarHeight;
+
+    let canvas = createCanvas(width, height);
+    canvas.parent('canvas-container');
+    console.log(navbarHeight);
+
+    // Adjust the div container height
+    // document.getElementById('canvas-container').style.height = canvasHeight + 'px';
+
 
     // Setup inital square
     // Corner point objects
@@ -57,9 +71,19 @@ function draw() {
     
     translate(0, height);  //moves the origin to bottom left
     scale(1, -1);          //flips the y values so y increases "up"
-    background(255);
-    stroke(0);
+    
+    
+    if (lightMode) {
+        strokeColour = 0;
+        fillColour = 255;
+    } else {
+        strokeColour = 255;
+        fillColour = 0;
+    }
 
+    stroke(strokeColour);
+    background(fillColour);
+    
     // Draw all edges
     for (let key in edges) {
         edges[key].draw()
@@ -71,7 +95,11 @@ function draw() {
     // line(0,height,width,height);
 
     [RT_closest_point_edge_ID, RT_closest_point] = search_for_closest_edge_to(createVector(mouseX, height-mouseY));
+    
+    fill(fillColour);
+    stroke(strokeColour);
     ellipse(RT_closest_point.x, RT_closest_point.y, 10,10); 
+    noFill();
 
     for (let section of sections) {
         if (allow_spin) {
@@ -88,7 +116,7 @@ function draw() {
     if (click1_flag) {
         stroke(255,0,0);
         line(click1_pos.x, click1_pos.y, RT_closest_point.x, RT_closest_point.y);
-        stroke(0);
+        stroke(strokeColour);
     }
     if (counter == shape_freq) {
         counter = 0;
@@ -140,7 +168,7 @@ function Edge(n1,n2) {
     edges[this.ID] = this;
 
     this.draw = function() {
-        stroke(0);
+        stroke(strokeColour);
         line(this.p1.x, this.p1.y, this.p2.x, this.p2.y);
     }
 
@@ -367,7 +395,19 @@ function mouseClicked() {
 }
 
 function keyPressed() {
-    if (keyCode === 32) {
+    // Space to pause
+    if (key === ' ') {
         allow_spin = !allow_spin;
-    } 
+
+    // d to delete all shapes
+    } else if (key === 'd' || key === 'D') {
+        for (let i=0; i<sections.length; i++) {
+            sections[i].shapes = [];
+        } 
+    
+    // s to swap light and dark mode
+    } else if (key === 's' || key === 'S') {
+        lightMode = !lightMode;
+    }
+
 }
