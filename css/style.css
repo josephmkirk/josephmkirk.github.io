@@ -121,6 +121,12 @@ section {
   	background-size: cover;
 }
 
+.title-container {
+    display: inline-block;
+    align-items: center; /* Center-align items vertically */
+	overflow: visible;
+}
+
 .title-text-container {
 	display: inline-block;
 	vertical-align: middle;
@@ -138,11 +144,18 @@ section {
 	object-fit: cover;
 	vertical-align: middle;
 	margin: 50px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add a drop shadow */
 }
 
-.title-container {
-    display: inline; /* Use flexbox to align elements */
-    align-items: center; /* Center-align items vertically */
+.title-shift-up {
+	transform: translateY(-80px);
+}
+
+/* Adjust for mobile screens */
+@media only screen and (max-width: 768px) {
+    .title-shift-up {
+        transform: translateY(-120px); /* Move up more on mobile */
+    }
 }
 
 .centered-portfolio-text {
@@ -907,9 +920,57 @@ p.subtitle {
 }
 /* ===== End buttons ===== */
 
+/* ==== Custom Classes ==== */
+.long-form-portfolio p {
+	text-align: left;
+	font-size: 1.25em;
+	line-height: 110%;
+	margin-bottom: 10px;
+}
+
+.long-form-portfolio ul {
+	text-align: left;
+	margin-left: 5%;
+	font-size: 1.25em;
+	margin-bottom: 10px;
+	list-style-type: disc !important;
+}
+
+.long-form-portfolio li {
+	margin: 5px;
+}
+
+.long-form-portfolio img {
+	margin: 0 auto;
+	margin-bottom: 20px !important;
+	margin-top: 20px !important;
+	width: 40%; /* Makes the image responsive */
+	height: auto;
+	display: block;
+	border-radius: 10px; /* Rounds the corners */
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow */
+}
+
+.long-form-portfolio a {
+	color: blue;         /* Set the text color to blue */
+    text-decoration: underline; /* Add underlines to the text */
+    font-style: italic; 
+}
+
+.long-form-portfolio iframe {
+	margin: 0 auto;
+	margin-bottom: 20px !important;
+	margin-top: 20px !important;
+	display: block;
+}
+
 #canvas-container {
 	flex: 1; /* Allow it to grow and fill the available space */
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.push-down {
+	margin-top: 50px !important;
 }
